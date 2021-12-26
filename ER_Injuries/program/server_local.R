@@ -38,7 +38,14 @@ count_data <- function(data, count_field) {
 code_data <- reactive({
   req(input$product_code)
   injuries %>%
-    filter(prod1 == as.numeric(input$product_code))
+    filter(prod_code == as.numeric(input$product_code))
+})
+
+summary <- reactive({
+  code_data() %>%
+    count(age, sex, wt = weight) %>%
+    left_join(population, by = c("age", "sex")) %>%
+    mutate(rate = n / population * 1e4)
 })
 
 diagnosis_data <- reactive({
@@ -52,6 +59,8 @@ body_part_data <- reactive({
 location_data <- reactive({
   count_data(code_data(), "location")
 })
+
+
 
 # ----------------------------------------
 # --          SHINY SERVER CODE         --
