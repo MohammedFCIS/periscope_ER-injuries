@@ -24,7 +24,8 @@
 # ----------------------------------------
 
 # -- IMPORTS --
-
+library(dplyr)
+source("./program/data/app_data.R", local = TRUE)
 
 # -- VARIABLES --
 
@@ -35,5 +36,7 @@
 # ----------------------------------------
 # --          SHINY SERVER CODE         --
 # ----------------------------------------
-
-
+updateSelectInput(session,
+                  "product_code",
+                  selected = character(0),
+                  choices  = prod_codes)

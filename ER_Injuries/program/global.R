@@ -12,9 +12,8 @@
 library(shiny)
 library(periscope)
 
-
 # -- Setup your Application --
-set_app_parameters(title = "Set title in global.R using set_app_parameters()",
+set_app_parameters(title = "ER Injuries",
                    titleinfo = NULL,
                    loglevel = "DEBUG",
                    showlog = FALSE,

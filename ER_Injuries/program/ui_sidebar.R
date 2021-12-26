@@ -17,16 +17,20 @@
 # -- IMPORTS --
 
 
-
 # ----------------------------------------
 # --     SIDEBAR ELEMENT CREATION       --
 # ----------------------------------------
 
 # -- Create Basic Elements
-
+prod_codes_input <- selectizeInput(inputId  = "product_code",
+                                   label    = "Product",
+                                   choices  = NULL,
+                                   multiple = FALSE,
+                                   selected = character(0),
+                                   options  = list(placeholder = "Type/Click then Select"))
 
 # -- Register Basic Elements in the ORDER SHOWN in the UI
-add_ui_sidebar_basic()
+add_ui_sidebar_basic(prod_codes_input, tabname = "Setup")
 
 
 
