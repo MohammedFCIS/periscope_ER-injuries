@@ -24,11 +24,15 @@
 # -- Create Elements
 diag <- box(
   id          = "diag_box",
-  title       = "diagnosis",
+  title       = "Diagnosis",
   width       = 4,
   collapsible = TRUE,
   collapsed   = FALSE,
-  fluidRow(tableOutput("diag_table")))
+  fluidRow(column(width = 12,
+                  downloadableTableUI("diag_table",
+                               list("csv", "tsv"),
+                               singleSelect = TRUE,
+                               "Download diagnosis data"))))
 
 body_part <- box(
   id          = "body_part_box",
@@ -36,7 +40,11 @@ body_part <- box(
   width       = 4,
   collapsible = TRUE,
   collapsed   = FALSE,
-  fluidRow(tableOutput("body_part_table")))
+  fluidRow(column(width = 12,
+                  downloadableTableUI("body_part_table",
+                                      list("csv", "tsv"),
+                                      singleSelect = TRUE,
+                                      "Download body part data"))))
 
 location <- box(
   id          = "location_box",
@@ -44,7 +52,11 @@ location <- box(
   width       = 4,
   collapsible = TRUE,
   collapsed   = FALSE,
-  fluidRow(tableOutput("location_table")))
+  fluidRow(column(width = 12,
+                  downloadableTableUI("location_table",
+                                      list("csv", "tsv"),
+                                      singleSelect = TRUE,
+                                      "Download location data"))))
 
 age_sex <- box(
   id          = "age_sex_box",
@@ -52,7 +64,7 @@ age_sex <- box(
   width       = 12,
   collapsible = TRUE,
   collapsed   = FALSE,
-  fluidRow(tableOutput("age_sex_table")))
+  fluidRow(canvasXpressOutput("age_sex_table")))
 
 # -- Register Elements in the ORDER SHOWN in the UI
 add_ui_body(list(diag, body_part, location, age_sex))
