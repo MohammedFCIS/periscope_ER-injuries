@@ -11,6 +11,8 @@
 
 library(shiny)
 library(periscope)
+library(DT)
+library(canvasXpress)
 
 # -- Setup your Application --
 set_app_parameters(title = "ER Injuries",
