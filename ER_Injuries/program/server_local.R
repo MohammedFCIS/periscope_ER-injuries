@@ -64,6 +64,10 @@ location_data <- reactive({
   count_top(code_data(), "location")
 })
 
+narrative_sample <- eventReactive(
+  list(input$story, code_data()),
+  code_data() %>% pull(narrative) %>% sample(1)
+)
 
 
 # ----------------------------------------
@@ -118,3 +122,5 @@ output$age_sex_plot <- renderCanvasXpress({
     xAxisTitle = "Estimated number of injuries"
   )
 })
+
+output$narrative_txt <- renderText(narrative_sample())

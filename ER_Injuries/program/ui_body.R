@@ -70,5 +70,16 @@ age_sex <- box(
   fluidRow(column(width = 12,
                   canvasXpressOutput("age_sex_plot", width = "100%"))))
 
+narrative <- box(
+  id          = "varrative_box",
+  title       = "Narrative",
+  width       = 12,
+  collapsible = TRUE,
+  collapsed   = TRUE,
+  fluidRow(
+    column(2, actionButton("story", "Tell me a story")),
+    column(10, textOutput("narrative_txt"))
+  ))
+
 # -- Register Elements in the ORDER SHOWN in the UI
-add_ui_body(list(diag, body_part, location, age_sex))
+add_ui_body(list(diag, body_part, location, age_sex, narrative))
