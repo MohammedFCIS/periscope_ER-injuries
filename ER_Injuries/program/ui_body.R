@@ -64,7 +64,8 @@ age_sex <- box(
   width       = 12,
   collapsible = TRUE,
   collapsed   = FALSE,
-  fluidRow(canvasXpressOutput("age_sex_plot", width = "100%")))
+  fluidRow(column(width = 12,
+                  canvasXpressOutput("age_sex_plot", width = "100%"))))
 
 # -- Register Elements in the ORDER SHOWN in the UI
 add_ui_body(list(diag, body_part, location, age_sex))

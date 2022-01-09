@@ -110,6 +110,7 @@ output$age_sex_plot <- renderCanvasXpress({
   canvasXpress(
     data = cx.data,
     graphOrientation="vertical",
-    graphType="Line"
+    graphType="Line",
+    xAxisTitle = "Estimated number of injuries"
   )
 })
