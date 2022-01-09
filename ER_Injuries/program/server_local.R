@@ -25,14 +25,17 @@
 
 # -- IMPORTS --
 library(dplyr)
+library(forcats)
 library(tidyr)
 library(vroom)
 source("./program/data/app_data.R", local = TRUE)
 
 # -- FUNCTIONS --
-count_data <- function(data, count_field) {
-  code_data() %>%
-    count(.data[[count_field]], wt = weight, sort = TRUE)
+count_top <- function(df, var, n = 5) {
+  df %>%
+    mutate({{var}} := fct_lump(fct_infreq(.data[[var]]), n = n)) %>%
+    group_by(.data[[var]]) %>%
+    summarise(n = as.integer(sum(weight)))
 }
 
 # -- REACTIVE VARIABLES --
@@ -50,15 +53,15 @@ age_sex_summary <- reactive({
 })
 
 diagnosis_data <- reactive({
-  count_data(code_data(), "diag")
+  count_top(code_data(), "diag")
 })
 
 body_part_data <- reactive({
-  count_data(code_data(), "body_part")
+  count_top(code_data(), "body_part")
 })
 
 location_data <- reactive({
-  count_data(code_data(), "location")
+  count_top(code_data(), "location")
 })
 
 
