@@ -31,7 +31,8 @@ diag <- box(
   fluidRow(column(width = 12,
                   downloadableTableUI("diag_table",
                                list("csv", "tsv"),
-                               singleSelect = TRUE,
+                               contentHeight = "230px",
+                               singleSelect  = TRUE,
                                "Download diagnosis data"))))
 
 body_part <- box(
@@ -43,7 +44,8 @@ body_part <- box(
   fluidRow(column(width = 12,
                   downloadableTableUI("body_part_table",
                                       list("csv", "tsv"),
-                                      singleSelect = TRUE,
+                                      singleSelect  = TRUE,
+                                      contentHeight = "230px",
                                       "Download body part data"))))
 
 location <- box(
@@ -55,7 +57,8 @@ location <- box(
   fluidRow(column(width = 12,
                   downloadableTableUI("location_table",
                                       list("csv", "tsv"),
-                                      singleSelect = TRUE,
+                                      singleSelect  = TRUE,
+                                      contentHeight = "230px",
                                       "Download location data"))))
 
 age_sex <- box(
