@@ -25,7 +25,8 @@
 
 # -- IMPORTS --
 library(dplyr)
-library(neiss)
+library(tidyr)
+library(vroom)
 source("./program/data/app_data.R", local = TRUE)
 
 # -- FUNCTIONS --
@@ -41,7 +42,7 @@ code_data <- reactive({
     filter(prod_code == as.numeric(input$product_code))
 })
 
-summary <- reactive({
+age_sex_summary <- reactive({
   code_data() %>%
     count(age, sex, wt = weight) %>%
     left_join(population, by = c("age", "sex")) %>%
@@ -92,4 +93,23 @@ observeEvent(input$product_code, {
                     list(csv = location_data, tsv = location_data),
                     location_data,
                     rownames = FALSE)
+})
+
+output$age_sex_plot <- renderCanvasXpress({
+  if(NROW(age_sex_summary()) == 0) {
+    return(NULL)
+  }
+
+  cx.data <- age_sex_summary() %>%
+    select(-population, -rate) %>%
+    pivot_wider(names_from = age, values_from = n) %>%
+    as.data.frame()
+  row.names(cx.data) <- cx.data$sex
+  cx.data$sex <- NULL
+
+  canvasXpress(
+    data = cx.data,
+    graphOrientation="vertical",
+    graphType="Line"
+  )
 })
