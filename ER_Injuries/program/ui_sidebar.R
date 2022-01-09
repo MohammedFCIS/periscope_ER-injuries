@@ -28,9 +28,14 @@ prod_codes_input <- selectizeInput(inputId  = "product_code",
                                    multiple = FALSE,
                                    selected = character(0),
                                    options  = list(placeholder = "Type/Click then Select"))
+plot_option      <- selectizeInput(inputId  = "plot_option",
+                                   label    = "Distribution",
+                                   choices  = c("Rate" = "rate", "Count" = "n"),
+                                   multiple = FALSE,
+                                   selected = "rate")
 
 # -- Register Basic Elements in the ORDER SHOWN in the UI
-add_ui_sidebar_basic(prod_codes_input, tabname = "Setup")
+add_ui_sidebar_basic(list(prod_codes_input, plot_option), tabname = "Setup")
 
 
 

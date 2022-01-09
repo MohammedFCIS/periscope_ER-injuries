@@ -103,9 +103,10 @@ output$age_sex_plot <- renderCanvasXpress({
     return(NULL)
   }
 
+  selected_dist <- input$plot_option
   cx.data <- age_sex_summary() %>%
-    select(-population, -rate) %>%
-    pivot_wider(names_from = age, values_from = n) %>%
+    select(sex, age, selected_dist) %>%
+    pivot_wider(names_from = age, values_from = selected_dist) %>%
     as.data.frame()
   row.names(cx.data) <- cx.data$sex
   cx.data$sex <- NULL
