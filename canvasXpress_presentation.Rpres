@@ -1,0 +1,70 @@
+CanvasXpress and Periscope for Data Analytics
+========================================================
+author: Mohammed Ali
+date: 15/01/2022
+autosize: true
+
+What is CanvasXpress?
+========================================================
+
+* CanvasXpress a stand-alone JavaScript Library for Data Analytics.
+* Orignally it was built for the purpose of reproducible research with a sophisticated user interface.
+* It is enriched with full and effortless audit trail of data, configuration and all user interactions in every visualization.
+
+CanvasXpress Framework Features
+========================================================
+
+* Supporing large number of plots with nearly 52 main plot type (line, bar, boxplot, scatter2D, ...)
+* Supporting multiple frameworks and languages (R, Python, Node, Angular, ...)
+* Dynamic and reactive charts. On-chart functionality is extensive. Reproducibility, Reproducible Research
+* JS library updates are made frequently. CRAN package updated regularly for R. Python package is brand new in 2021!
+
+R Package Features - 1
+========================================================
+* Tool Bar
+* Codes available in R, JSON, Python
+* Statistical Analysis on the charts
+* [Demo 1](https://canvasxpress.org/examples/scatter2d-1.html)
+
+R Package Features Con.
+========================================================
+* Labelling data points
+* Slicing the plots
+* Point selection
+* [Demo 2](https://canvasxpress.org/examples/scatter2d-13.html)
+
+R Package Features Con.
+========================================================
+* Reproduce & Replay
+* Reproducible PNG
+* Broadcasting
+* Demo 3
+```{r eval = F}
+canvasXpress::cxShinyExample("example3")
+```
+
+R Package Features Con.
+========================================================
+* Table view
+* CanvasXpress Properties
+* UI Customization
+* Resetting
+* [Demo 4](https://canvasxpress.org/examples/boxplot-1.html)
+
+R Package Features Con.
+========================================================
+* Data Transformation
+* Data Point Properties
+* Filter
+* [Demo 5](https://canvasxpress.org/examples/histogram-2.html)
+
+ggplot to canvasXpress
+========================================================
+* ggplot
+
+Periscope
+========================================================
+* Periscope is a scalable and UI-standardized 'shiny' framework
+* It includes a variety of developer convenience functions with the goal of both streamlining robust application development and assisting in creating a consistent user experience regardless of application or developer.
+* Demo 1
+* Demo 2
